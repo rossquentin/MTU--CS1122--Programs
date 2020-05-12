@@ -64,8 +64,8 @@ public class Turnstile{
 	 * This is called each time a person walks through the turnstile.
 	 */
 	public void incrementCounter(){
-        hourlyCount += 1;
-        totalCount += 1;
+        hourlyCount++;
+        totalCount++;
 	}
 	
 	/**
@@ -74,7 +74,7 @@ public class Turnstile{
 	public void reset(){
         totalCount = 0;
         hourlyCount = 0;
-        currentHour += 1;
+        currentHour++;
 	}
 	
 	/**
@@ -83,7 +83,7 @@ public class Turnstile{
 	 */
 	public void newHour(){
         hourlyCount = 0;
-        currentHour += 1;
+        currentHour++;
 	}
 	
 	/**
@@ -133,7 +133,6 @@ public class Turnstile{
 		System.out.println(example);
 		
 		//These are other things you can use to test, but are not part of an actual test!
-		Turnstile example2 = new Turnstile("EERC stop");
 		example.setTotalCounter(100);
 		example.setHourCounter(50);
 		example.incrementCounter();
@@ -142,6 +141,18 @@ public class Turnstile{
 		System.out.println(example.getHourly());
 		example.reset();
 		example.newHour();
+
+        Turnstile example2 = new Turnstile("EERC stop");
+        example2.setTotalCounter(20);
+        example2.setHourCounter(10);
+        for (int i = 0; i < 15; i++) {
+            example2.incrementCounter();
+        }
+        System.out.println(example2);
+        example2.newHour();
+        System.out.println(example2.getTotal());
+        System.out.println(example2.getHourly());
+        example2.reset();
 
 	}
 }
