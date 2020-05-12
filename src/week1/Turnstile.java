@@ -3,10 +3,10 @@ package week1;
 /**
  * A class for tracking visitors passing through a turnstile. A turnstile has a name, e.g. "North-West Entrance A", and keeps track of both an hourly and a total visitor count.
  * When a visitor walks through the turnstile, the software will call the {@link #incrementCounter()} method on the corresponding Turnstile object. 
- * Every hour, the software will record the hourly count using {@link #getHourlyCount()} and the total count using {@link #getTotalCount()}, and will reset the hourly count using {@link #newHour()}.
+ * Every hour, the software will record the hourly count using {@link #getHourly()} and the total count using {@link #getTotal()}, and will reset the hourly count using {@link #newHour()}.
 
  * To allow the staff to provide exceptions and adjustments, two mutators for each count are also provided. 
- * The counts can be set directly using {@link #setHourlyCount(int count)} and {@link #setTotalCount(int count)}, or both counters can be adjusted by a number using {@link #setHourCounter(int count)}
+ * The counts can be set directly using {@link #setHourCounter(int count)} and {@link #setTotalCounter(int count)}, or both counters can be adjusted by a number using {@link #setHourCounter(int count)}
  * or using {@link #setTotalCounter(int count)}.
  *
  * CS1122 - Summer 2020
