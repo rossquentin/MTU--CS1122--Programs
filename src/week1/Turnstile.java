@@ -13,6 +13,7 @@ package week1;
  *
  * @author Quentin Ross
  */
+
 public class Turnstile{
 
     private String name;
