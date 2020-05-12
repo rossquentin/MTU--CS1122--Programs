@@ -16,6 +16,9 @@ package week1;
 public class Turnstile{
 
     private String name;
+    private int totalCount = 0;
+    private int hourlyCount = 0;
+    private int currentHour = 0;
 
 	/**
 	 *	A constructor for the class that sets the name of the object.
@@ -23,7 +26,6 @@ public class Turnstile{
 	 * @param name		the name used to identify the object.
 	 */
 	public Turnstile(String name){
-		//TODO implement constructor
         this.name = name;
 	}
 
@@ -33,7 +35,6 @@ public class Turnstile{
 	 * @return			the string containing the name of the Turnstile object.
 	 */
 	public String getName(){
-		//TODO implement getName
         return name;
 	}
 	
@@ -45,7 +46,7 @@ public class Turnstile{
 	 *          		last reset.
 	 */
 	public int getTotal(){
-		//TODO implement getTotal
+        return totalCount;
 	}
 	
 	/**
@@ -55,21 +56,24 @@ public class Turnstile{
 	 * @return			the number of people who have gone through this turnstile this hour.
 	 */
 	public int getHourly(){
-		//TODO implement getHourly
+        return hourlyCount;
 	}
 	
 	/**
 	 * This is called each time a person walks through the turnstile.
 	 */
 	public void incrementCounter(){
-		//TODO implement incrementCounter
+        hourlyCount += 1;
+        totalCount += 1;
 	}
 	
 	/**
 	 * Reset all counters to 0, as well as changing to a new hour.
 	 */
 	public void reset(){
-		//TODO implement reset
+        totalCount = 0;
+        hourlyCount = 0;
+        currentHour += 1;
 	}
 	
 	/**
@@ -77,7 +81,8 @@ public class Turnstile{
 	 * leave the counter for the total alone.
 	 */
 	public void newHour(){
-			//TODO implement newHour
+        hourlyCount = 0;
+        currentHour += 1;
 	}
 	
 	/**
@@ -87,7 +92,7 @@ public class Turnstile{
 	 * @param count		the new count that our hourly count should be set to.
 	 */
 	public void setHourCounter(int count){
-		//TODO implement setHourCounter
+        hourlyCount = Math.max(count, 0);
 	}
 	
 	/**
@@ -97,7 +102,7 @@ public class Turnstile{
 	 * @param count		the value the total count should be set to.
 	 */
 	public void setTotalCounter(int count){
-		//TODO implement setHourCounter
+        totalCount = Math.max(count, 0);
 	} 
 	 
 	 
@@ -108,12 +113,18 @@ public class Turnstile{
 	 *
 	 * @return	a string that displays the name, total count, and hourly count in the specified format.
 	 */
+    public String toString() {
+        return name + ": Total = " + totalCount + ", Hourly = " + hourlyCount;
+    }
+
 	//Oh No! The method header is missing!?!?!
 	 
 	/**
 	 * The main method here is provided to help you test your program.
 	 * The first test is done for you, but you should test all problems!
 	 */
+
+
 	public static void main(String[] args){
 		
 		Turnstile example = new Turnstile("Rekhi stop");
@@ -130,5 +141,6 @@ public class Turnstile{
 		System.out.println(example.getHourly());
 		example.reset();
 		example.newHour();
+
 	}
 }
