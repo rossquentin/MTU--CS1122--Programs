@@ -143,15 +143,16 @@ public class Turnstile{
 		example.newHour();
 
         Turnstile example2 = new Turnstile("EERC stop");
-        example2.setTotalCounter(20);
-        example2.setHourCounter(10);
+        example2.setTotalCounter(-20);
+        example2.setHourCounter(-10);
+        System.out.println(example2);
         for (int i = 0; i < 15; i++) {
             example2.incrementCounter();
         }
-        System.out.println(example2);
-        example2.newHour();
+        System.out.println(example2.getName());
         System.out.println(example2.getTotal());
         System.out.println(example2.getHourly());
+        example2.newHour();
         example2.reset();
 
 	}
